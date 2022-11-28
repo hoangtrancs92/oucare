@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="569.0" prefWidth="974.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.oucare.HelloController">
+   <children>
+      <TabPane prefHeight="569.0" prefWidth="974.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Đặt lịch">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView layoutX="21.0" layoutY="55.0" prefHeight="473.0" prefWidth="932.0" />
+                        <TextField layoutX="46.0" layoutY="23.0" prefHeight="25.0" prefWidth="467.0" />
+                        <Button layoutX="521.0" layoutY="23.0" mnemonicParsing="false" text="Tìm kiếm" />
+                        <Button layoutX="846.0" layoutY="23.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="107.0" text="Thêm mới" />
+                        <Label layoutX="21.0" layoutY="27.0" text="ID" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Quản lý khoa">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </Tab>
+            <Tab text="Quản lý bác sĩ">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+               </content>
+            </Tab>
+            <Tab text="Quản lý khách hàng">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+               </content>
+            </Tab>
+            <Tab text="Quản lý vé">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</Pane>
