@@ -20,4 +20,8 @@ public class department {
     public String getName() {
         return name;
     }
+    @Override
+    public String toString() {
+        return "phòng ban: " + this.name;
+    }
 }

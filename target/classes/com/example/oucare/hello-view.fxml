@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="569.0" prefWidth="974.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.oucare.HelloController">
    <children>
@@ -42,9 +46,72 @@
                </content>
             </Tab>
             <Tab text="Quản lý vé">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-               </content>
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <DatePicker layoutX="27.0" layoutY="46.0" prefHeight="26.0" prefWidth="226.0" />
+                        <TextField layoutX="554.0" layoutY="46.0" prefHeight="26.0" prefWidth="268.0" />
+                        <Label layoutX="27.0" layoutY="14.0" prefHeight="18.0" prefWidth="226.0" text="Ngày">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="297.0" layoutY="15.0" text="Phân loại">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="554.0" layoutY="15.0" text="Tên">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <TableView layoutX="27.0" layoutY="95.0" prefHeight="418.0" prefWidth="922.0">
+                          <columns>
+                            <TableColumn prefWidth="162.3999900817871" text="Mã vé" />
+                            <TableColumn prefWidth="195.19996643066406" text="Ngày" />
+                              <TableColumn prefWidth="216.0" text="Tên Bác Sĩ" />
+                              <TableColumn prefWidth="210.39996337890625" text="Tên Khách Hàng" />
+                              <TableColumn prefWidth="141.5999755859375" text="Thời gian" />
+                          </columns>
+                        </TableView>
+                        <Button layoutX="858.0" layoutY="44.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="90.0" text="Tìm kiếm">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <ComboBox fx:id="departmentComboBox" layoutX="306.0" layoutY="47.0" prefWidth="150.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Lịch làm việc">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <DatePicker layoutX="25.0" layoutY="46.0" prefHeight="26.0" prefWidth="226.0" />
+                        <Label layoutX="25.0" layoutY="14.0" prefHeight="18.0" prefWidth="226.0" text="Ngày">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <TableView layoutX="25.0" layoutY="92.0" prefHeight="428.0" prefWidth="922.0">
+                          <columns>
+                            <TableColumn prefWidth="155.99999618530273" text="Mã vé" />
+                            <TableColumn prefWidth="193.6000213623047" text="Ngày" />
+                              <TableColumn prefWidth="215.20001220703125" text="Tên Bác Sĩ" />
+                              <TableColumn prefWidth="219.20001220703125" text="Tên Khách Hàng" />
+                              <TableColumn prefWidth="148.0" text="Thời gian" />
+                          </columns>
+                        </TableView>
+                        <Button layoutX="871.0" layoutY="44.0" mnemonicParsing="false" text="Tìm kiếm">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+              </content>
             </Tab>
         </tabs>
       </TabPane>
