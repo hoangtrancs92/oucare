@@ -7,4 +7,5 @@ module com.example.oucare {
 
     opens com.example.oucare to javafx.fxml;
     exports com.example.oucare;
+    exports com.example.oucare.model;
 }

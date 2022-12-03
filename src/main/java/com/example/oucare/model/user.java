@@ -2,6 +2,8 @@ package com.example.oucare.model;
 
 public class user {
     private int id;
+    private String name;
+
     private String email;
     private String password;
     private String phone;
@@ -18,6 +20,10 @@ public class user {
         this.email = email;
         this.password = password;
     }
+    public user(int id, String name){
+        this.id = id;
+        this.name = name;
+    }
 
     public int getId() {
         return id;
@@ -27,6 +33,13 @@ public class user {
         this.id = id;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
     public String getEmail() {
         return email;
     }
