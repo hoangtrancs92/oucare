@@ -14,6 +14,6 @@ public class JdbcUtils {
         }
     }
     public static Connection getCnn() throws SQLException {
-        return DriverManager.getConnection("jdbc:mysql://localhost/oucare","root","");
+        return DriverManager.getConnection("jdbc:mysql://localhost/oucare","root","123456");
     }
 }
