@@ -33,9 +33,15 @@ public class user {
         this.email = email;
         this.password = password;
     }
+
     public user(String email, String password){
         this.email = email;
         this.password = password;
+    }
+
+    public user(int id, String name) {
+        this.id = id;
+        this.name = name;
     }
 
     public int getId() {
@@ -46,6 +52,13 @@ public class user {
         this.id = id;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
     public String getEmail() {
         return email;
     }
@@ -99,14 +112,6 @@ public class user {
     }
     public int getSex(){
         return sex;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public void setSex(int sex){

@@ -2,6 +2,7 @@
   <library name="javafx.controls">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/../javafx-sdk-17.0.1_3/lib/javafx.controls.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../javafx-sdk-17.0.1_3/lib/javafx.graphics.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
