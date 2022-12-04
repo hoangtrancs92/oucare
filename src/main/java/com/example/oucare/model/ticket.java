@@ -23,6 +23,14 @@ public class ticket {
         this.customer_name = customer_name;
         this.doctor_name = doctor_name;
     }
+
+    public ticket(int id, String date_start, String time_start, String name) {
+        this.id = id;
+        this.date_start = date_start;
+        this.time_start = time_start;
+        this.customer_name = name;
+    }
+
     public int getId() {
         return id;
     }

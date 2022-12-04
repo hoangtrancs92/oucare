@@ -49,6 +49,10 @@ public class user {
         this.id_role = id_role;
     }
 
+    public user(int customer_id) {
+        this.id = customer_id;
+    }
+
     public int getId() {
         return id;
     }

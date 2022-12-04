@@ -11,13 +11,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<Accordion maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19">
+<Accordion maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="463.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
   <panes>
     <TitledPane animated="false" prefHeight="569.0" prefWidth="974.0" text="Đặt Lịch">
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="569.0" prefWidth="974.0">
                <children>
-                  <ComboBox layoutX="37.0" layoutY="54.0" prefHeight="26.0" prefWidth="236.0" />
+                  <ComboBox layoutX="37.0" layoutY="54.0" prefHeight="26.0" prefWidth="332.0" />
                   <Label layoutX="39.0" layoutY="21.0" text="Khoa Khám Bệnh">
                      <font>
                         <Font size="14.0" />
@@ -38,19 +38,19 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <ComboBox layoutX="37.0" layoutY="129.0" prefHeight="26.0" prefWidth="234.0" />
-                  <DatePicker layoutX="39.0" layoutY="209.0" prefHeight="26.0" prefWidth="234.0" />
-                  <ImageView fitHeight="227.0" fitWidth="265.0" layoutX="300.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" />
-                  <Button layoutX="303.0" layoutY="289.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="258.0" text="Đặt Lịch" />
-                  <ComboBox layoutX="39.0" layoutY="290.0" prefHeight="26.0" prefWidth="236.0" />
+                  <ComboBox layoutX="37.0" layoutY="129.0" prefHeight="26.0" prefWidth="332.0" />
+                  <DatePicker layoutX="39.0" layoutY="209.0" prefHeight="26.0" prefWidth="325.0" />
+                  <ImageView fitHeight="363.0" fitWidth="501.0" layoutX="410.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" />
+                  <Button layoutX="39.0" layoutY="355.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="322.0" text="Đặt Lịch" />
+                  <ComboBox layoutX="39.0" layoutY="290.0" prefHeight="26.0" prefWidth="324.0" />
                </children></AnchorPane>
       </content>
     </TitledPane>
-    <TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="485.0" prefWidth="966.0" text="Danh Sách Lịch Đã Đặt">
+    <TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="413.0" prefWidth="850.0" text="Danh Sách Lịch Đã Đặt">
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <TableView layoutX="14.0" layoutY="14.0" prefHeight="318.0" prefWidth="570.0" />
+                  <TableView layoutX="38.0" layoutY="14.0" prefHeight="378.0" prefWidth="862.0" />
                </children></AnchorPane>
       </content>
     </TitledPane>

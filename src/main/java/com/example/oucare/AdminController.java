@@ -1,6 +1,5 @@
 package com.example.oucare;
 
-import com.example.oucare.config.JdbcUtils;
 import com.example.oucare.model.department;
 import com.example.oucare.model.ticket;
 import com.example.oucare.model.user;
@@ -14,18 +13,12 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-import javax.xml.transform.Result;
 import java.net.URL;
 import java.sql.*;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
-public class FXMLTicketController implements Initializable {
+public class AdminController implements Initializable {
     @FXML private ComboBox<department> departmentChoiceBox;
     @FXML private DatePicker datePicker;
     @FXML private TextField name;
@@ -67,11 +60,6 @@ public class FXMLTicketController implements Initializable {
             throw new RuntimeException(e);
         }
         this.clearValue(ts);
-    }
-    @FXML
-    private void receiveData(MouseEvent event) {
-        // Step 1
-
     }
     public void loadTableView(){
         TableColumn column1 = new TableColumn("Mã vé");
