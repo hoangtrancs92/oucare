@@ -95,6 +95,7 @@
                               <Tooltip text="Empty Tooltip" />
                            </tooltip></TableView>
                         <Button fx:id="clear" layoutX="863.0" layoutY="46.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="84.0" text="Xoá Tìm" />
+                        <Button layoutX="477.0" layoutY="3.0" mnemonicParsing="false" onAction="#ss" text="Button" />
 
                      </children>
                   </AnchorPane>

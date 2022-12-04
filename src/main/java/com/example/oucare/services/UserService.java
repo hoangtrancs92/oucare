@@ -26,7 +26,7 @@ public class UserService {
             e.printStackTrace();
         }
     }
-    public user getUserById(String email, String password) throws SQLException{
+    public user getUserByEmail(String email, String password) throws SQLException{
         user u = new user();
         try(Connection cnn = JdbcUtils.getCnn()){
             PreparedStatement stm = cnn.prepareCall("SELECT users.id , users.email, users.password FROM  users WHERE email=?");
@@ -38,6 +38,20 @@ public class UserService {
             stm.close();
         }
         return u;
-
+    }
+    public user getUserById(int id) throws SQLException {
+        user u = new user();
+        try (Connection cnn = JdbcUtils.getCnn()) {
+            PreparedStatement stm = cnn.prepareCall("SELECT * FROM  users WHERE id=?");
+            stm.setInt(1, id);
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                u = new user(rs.getInt("id"), rs.getString("name"),
+                        rs.getString("email"), rs.getString("address"), rs.getDate("birthday"), rs.getString("phone"),
+                        rs.getInt("sex"), rs.getInt("id_role"), rs.getInt("id_department"));
+            }
+            stm.close();
+        }
+        return u;
     }
 }

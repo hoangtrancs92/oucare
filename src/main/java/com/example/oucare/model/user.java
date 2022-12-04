@@ -14,6 +14,18 @@ public class user {
     private int id_role;
     private int id_department;
 
+    public user(int id, String name, String email, String phone, String address, java.sql.Date birthday, int sex, int id_role, int id_department) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+        this.address = address;
+        this.birthday = birthday;
+        this.sex = sex;
+        this.id_role = id_role;
+        this.id_department = id_department;
+    }
+
     public user(String name, String email, String password, String phone, String address, java.sql.Date birthday, int sex) {
         this.name = name;
         this.email = email;
@@ -22,7 +34,6 @@ public class user {
         this.address = address;
         this.birthday = birthday;
         this.sex = sex;
-
     }
 
     public user(){
@@ -43,6 +54,19 @@ public class user {
         this.id = id;
         this.name = name;
     }
+
+    public user(int id, String name, String email, String address, java.sql.Date birthday, String phone, int sex, int id_role, int id_department) {
+        this.name = name;
+        this.email = email;
+        this.id = id;
+        this.phone = phone;
+        this.address = address;
+        this.birthday = birthday;
+        this.sex = sex;
+        this.id_role = id_role;
+        this.id_department = id_department;
+    }
+
 
     public int getId() {
         return id;

@@ -4,14 +4,24 @@ import com.example.oucare.config.JdbcUtils;
 import com.example.oucare.model.department;
 import com.example.oucare.model.ticket;
 import com.example.oucare.model.user;
+import com.example.oucare.services.AES;
 import com.example.oucare.services.TicketService;
+import com.example.oucare.services.UserService;
 import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 import javax.xml.transform.Result;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.time.LocalDate;
@@ -30,8 +40,27 @@ public class FXMLTicketController implements Initializable {
     @FXML private Button clear;
     private LocalDate dp;
 
+    user user = new user();
+
+    public user getUser(user u) {
+        user.setId(u.getId());
+        user.setName(u.getName());
+        user.setAddress(u.getAddress());
+        user.setSex(u.getSex());
+        user.setEmail(u.getEmail());
+        user.setBirthday((Date) u.getBirthday());
+        user.setPhone(u.getPhone());
+        user.setId_role(u.getId_role());
+        if(user.getId() != 0) {
+            System.out.println(user);
+        }
+        else
+            System.out.println("dell");
+        return user;
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         TicketService ts = new TicketService();
         this.loadTableView();
         try {
@@ -48,6 +77,7 @@ public class FXMLTicketController implements Initializable {
         this.clearValue(ts);
     }
     public void loadTableView(){
+
         TableColumn column1 = new TableColumn("Mã vé");
         column1.setCellValueFactory(new PropertyValueFactory("id"));
         column1.setPrefWidth(110);
