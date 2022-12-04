@@ -29,9 +29,7 @@ public class user {
 
     }
     public user(int id, String email, String password){
-        this.id = id;
-        this.email = email;
-        this.password = password;
+
     }
 
     public user(String email, String password){
@@ -42,6 +40,13 @@ public class user {
     public user(int id, String name) {
         this.id = id;
         this.name = name;
+    }
+
+    public user(int id, String email, String password, int id_role) {
+        this.id = id;
+        this.email = email;
+        this.password = password;
+        this.id_role = id_role;
     }
 
     public int getId() {

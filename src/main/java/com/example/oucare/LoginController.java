@@ -41,8 +41,17 @@ public class LoginController {
         System.out.println(u.getPassword());
         System.out.println(AES.encrypt(passwordField.getText(), secretKey));
         if(u.getEmail().equals(txtUsername.getText()) && u.getPassword().equals(AES.encrypt(passwordField.getText(), secretKey)) ){
-            fxmlLoader = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
+            if(u.getId_role() == 1)
+            {
+                fxmlLoader = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
+            } else if(u.getId_role() == 2) {
+                fxmlLoader = FXMLLoader.load(getClass().getResource("doctor.fxml"));
+            } else {
+                fxmlLoader = FXMLLoader.load(getClass().getResource("customer.fxml"));
+            }
+
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setUserData(u);
             scene = new Scene(fxmlLoader);
             stage.setScene(scene);
             stage.show();

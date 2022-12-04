@@ -29,11 +29,11 @@ public class UserService {
     public user getUserById(String email, String password) throws SQLException{
         user u = new user();
         try(Connection cnn = JdbcUtils.getCnn()){
-            PreparedStatement stm = cnn.prepareCall("SELECT users.id , users.email, users.password FROM  users WHERE email=?");
+            PreparedStatement stm = cnn.prepareCall("SELECT users.id , users.email, users.password, users.id_role FROM  users WHERE email=?");
             stm.setString(1, email);
             ResultSet rs = stm.executeQuery();
             while (rs.next()){
-                u = new user(rs.getInt("id"),rs.getString("email"), rs.getString("password"));
+                u = new user(rs.getInt("id"),rs.getString("email"), rs.getString("password"), rs.getInt("id_role"));
             }
             stm.close();
         }
