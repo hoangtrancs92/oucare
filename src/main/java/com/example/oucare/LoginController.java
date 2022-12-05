@@ -45,6 +45,18 @@ public class LoginController {
             Scene scene = new Scene(userViewParent);
             FXMLTicketController controller = loader.getController();
             controller.getUser(USs.getUserById(u.getId()));
+            if(u.getId_role() == 1)
+            {
+                fxmlLoader = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
+            } else if(u.getId_role() == 2) {
+                fxmlLoader = FXMLLoader.load(getClass().getResource("doctor.fxml"));
+            } else {
+                fxmlLoader = FXMLLoader.load(getClass().getResource("customer.fxml"));
+            }
+
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setUserData(u);
+            scene = new Scene(fxmlLoader);
             stage.setScene(scene);
             stage.show();
         }

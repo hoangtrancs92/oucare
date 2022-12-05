@@ -15,6 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
@@ -38,6 +39,10 @@ public class FXMLTicketController implements Initializable {
     @FXML private TextField name;
     @FXML private TableView<ticket> ticketTableView;
     @FXML private Button clear;
+    @FXML private TabPane tb;
+    int user_id;
+    int role_id;
+    int check = 0;
     private LocalDate dp;
 
     user user = new user();
@@ -66,6 +71,20 @@ public class FXMLTicketController implements Initializable {
         try {
             this.departmentChoiceBox.setItems(FXCollections.observableList(ts.getDepartments()));
             this.loadDataTable(null, new department(0,"null"), null,ts);
+            this.tb.setOnMouseClicked((event) -> {
+                if(check == 0){
+                    Node node = (Node) event.getSource();
+                    Stage stage = (Stage) node.getScene().getWindow();
+                    // Step 2
+                    user u = (user) stage.getUserData();
+                    // Step 3
+                    user_id = u.getId();
+                    role_id = u.getId_role();
+                    System.err.println(user_id);
+                    System.err.println(role_id);
+                    check++;
+                }
+            });
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -75,6 +94,11 @@ public class FXMLTicketController implements Initializable {
             throw new RuntimeException(e);
         }
         this.clearValue(ts);
+    }
+    @FXML
+    private void receiveData(MouseEvent event) {
+        // Step 1
+
     }
     public void loadTableView(){
 

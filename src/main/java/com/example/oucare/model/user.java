@@ -40,9 +40,7 @@ public class user {
 
     }
     public user(int id, String email, String password){
-        this.id = id;
-        this.email = email;
-        this.password = password;
+
     }
 
     public user(String email, String password){
@@ -54,7 +52,6 @@ public class user {
         this.id = id;
         this.name = name;
     }
-
     public user(int id, String name, String email, String address, java.sql.Date birthday, String phone, int sex, int id_role, int id_department) {
         this.name = name;
         this.email = email;
@@ -66,8 +63,12 @@ public class user {
         this.id_role = id_role;
         this.id_department = id_department;
     }
-
-
+    public user(int id, String email, String password, int id_role) {
+        this.id = id;
+        this.email = email;
+        this.password = password;
+        this.id_role = id_role;
+    }
     public int getId() {
         return id;
     }
