@@ -5,7 +5,7 @@ import java.sql.SQLException;
 
 
 public class JdbcUtils {
-    private static Connection cnn;
+    public static Connection cnn;
     static{
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -14,6 +14,7 @@ public class JdbcUtils {
         }
     }
     public static Connection getCnn() throws SQLException {
-        return DriverManager.getConnection("jdbc:mysql://localhost/bustickets_db","root","");
+        return DriverManager.getConnection("jdbc:mysql://localhost/oucare","root","");
+
     }
 }
