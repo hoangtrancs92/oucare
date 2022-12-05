@@ -1,6 +1,8 @@
 package com.example.oucare.services;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.example.oucare.model.user;
 import com.example.oucare.config.JdbcUtils;
@@ -54,5 +56,17 @@ public class UserService {
             stm.close();
         }
         return u;
+    }
+    public List<user> getCustomer() throws SQLException {
+        List<user> result = new ArrayList<>();
+        try(Connection conn = JdbcUtils.getCnn()){
+            Statement stm = conn.createStatement();
+            ResultSet rs = stm.executeQuery("SELECT * FROM  users ");
+            while (rs.next()){
+                user info_user = new user(rs.getInt(1),rs.getString(2)); // mỗi cái rs.get này tương ứng với 1 trường trong model ví dụ
+                result.add(info_user);
+            }
+        }
+        return result;
     }
 }
