@@ -1,6 +1,7 @@
 package com.example.oucare.model;
 
 import java.util.Date;
+import java.util.List;
 
 public class user {
     private int id;
@@ -52,6 +53,7 @@ public class user {
         this.id = id;
         this.name = name;
     }
+
     public user(int id, String name, String email, String address, java.sql.Date birthday, String phone, int sex, int id_role, int id_department) {
         this.name = name;
         this.email = email;
@@ -68,6 +70,10 @@ public class user {
         this.email = email;
         this.password = password;
         this.id_role = id_role;
+    }
+
+    public user(int customer_id) {
+        this.id = customer_id;
     }
     public int getId() {
         return id;
@@ -107,22 +113,25 @@ public class user {
         this.phone = phone;
     }
 
+//    @Override
+//    public String toString() {
+//        return "user{" +
+//                "id=" + id +
+//                ", name='" + name + '\'' +
+//                ", email='" + email + '\'' +
+//                ", password='" + password + '\'' +
+//                ", phone='" + phone + '\'' +
+//                ", address='" + address + '\'' +
+//                ", birthday=" + birthday +
+//                ", sex=" + sex +
+//                ", id_role=" + id_role +
+//                ", id_department=" + id_department +
+//                '}';
+//    }
     @Override
     public String toString() {
-        return "user{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", phone='" + phone + '\'' +
-                ", address='" + address + '\'' +
-                ", birthday=" + birthday +
-                ", sex=" + sex +
-                ", id_role=" + id_role +
-                ", id_department=" + id_department +
-                '}';
+        return this.name;
     }
-
     public String getAddress() {
         return address;
     }

@@ -34,6 +34,7 @@ public class UserService {
             ResultSet rs = stm.executeQuery();
             while (rs.next()){
                 u = new user(rs.getInt("id"),rs.getString("email"), rs.getString("password"), rs.getInt("id_role"));
+
             }
             stm.close();
         }

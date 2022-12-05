@@ -1,6 +1,5 @@
 package com.example.oucare;
 
-import com.example.oucare.config.JdbcUtils;
 import com.example.oucare.model.department;
 import com.example.oucare.model.ticket;
 import com.example.oucare.model.user;
@@ -16,24 +15,22 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 
+
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
+
 import javax.xml.transform.Result;
 import java.io.IOException;
+
 import java.net.URL;
 import java.sql.*;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
-public class FXMLTicketController implements Initializable {
+public class AdminController implements Initializable {
     @FXML private ComboBox<department> departmentChoiceBox;
     @FXML private DatePicker datePicker;
     @FXML private TextField name;

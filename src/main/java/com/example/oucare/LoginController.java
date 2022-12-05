@@ -43,7 +43,7 @@ public class LoginController {
             stage.setUserData(USs.getUserById(u.getId()));
             Parent userViewParent = loader.load();
             Scene scene = new Scene(userViewParent);
-            FXMLTicketController controller = loader.getController();
+            AdminController controller = loader.getController();
             controller.getUser(USs.getUserById(u.getId()));
             if(u.getId_role() == 1)
             {

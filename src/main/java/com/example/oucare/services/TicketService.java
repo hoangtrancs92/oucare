@@ -86,7 +86,7 @@ public class TicketService {
             }
             if(date != null){
                 if(date.getValue() != null){
-                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-dd-MM");
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
                     LocalDate dates = date.getValue();
                     if (dates != null) {
                         sql += " and date_start = " + "'" + formatter.format(dates) + "'";
@@ -125,4 +125,43 @@ public class TicketService {
 
         return tickets;
     }
+
+    public List<ticket> getTicketsForDoctor(DatePicker date, int doctor_id) throws SQLException {
+        List<ticket> tickets = new ArrayList<>();
+        List<user> users = new ArrayList<>();
+        PreparedStatement stm = null;
+        try(Connection connection = JdbcUtils.getCnn()){
+            String sql = "SELECT * FROM tickets";
+            sql += " WHERE id_doctor = ?";
+            if(date != null){
+                if(date.getValue() != null){
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                    LocalDate dates = date.getValue();
+                    if (dates != null) {
+                        sql += " and date_start = " + "'" + formatter.format(dates) + "'";
+                    }
+                }
+            }
+            System.err.println(sql);
+            stm = connection.prepareStatement(sql);
+            stm.setInt(1, doctor_id);
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()){
+                int customer_id = rs.getInt("id_customer");
+                user customer = new user(customer_id);
+                String subSql = "SELECT users.name FROM users";
+                subSql += " WHERE id = " + customer_id;
+                PreparedStatement subStm = connection.prepareStatement(subSql);
+                ResultSet subRs = subStm.executeQuery(subSql);
+                while (subRs.next()){
+                    customer.setName(subRs.getString("name"));
+                }
+                ticket t = new ticket(rs.getInt("id"),rs.getString("date_start"), rs.getString("time_start")+":00", customer.getName());
+                tickets.add(t);
+            }
+        }
+
+        return tickets;
+    }
+
 }
