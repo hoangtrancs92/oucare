@@ -15,6 +15,16 @@ public class user {
     private int id_role;
     private int id_department;
 
+    public String getName_department() {
+        return name_department;
+    }
+
+    public void setName_department(String name_department) {
+        this.name_department = name_department;
+    }
+
+    private String name_department;
+
     public user(int id, String name, String email, String phone, String address, java.sql.Date birthday, int sex, int id_role, int id_department) {
         this.id = id;
         this.name = name;

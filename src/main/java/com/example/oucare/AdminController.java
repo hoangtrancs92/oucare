@@ -54,7 +54,6 @@ public class AdminController implements Initializable {
         user.setPhone(u.getPhone());
         user.setId_role(u.getId_role());
         if(user.getId() != 0) {
-            System.out.println(user);
         }
         else
             System.out.println("dell");
@@ -128,7 +127,6 @@ public class AdminController implements Initializable {
                 dp_id = this.departmentChoiceBox.getValue().getId();
             }
             department dp = new department(dp_id);
-            System.err.println(this.datePicker.getValue());
             try {
                 this.loadDataTable(this.datePicker, dp, this.name.getText(),ts);
             } catch (SQLException e) {

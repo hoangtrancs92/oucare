@@ -9,10 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -35,7 +32,7 @@ public class LoginController {
 
         user u ;
         UserService USs = new UserService();
-         u = USs.getUserByEmail(txtUsername.getText(), passwordField.getText());
+         u = USs.getUserByEmail(txtUsername.getText());
         if(u.getEmail().equals(txtUsername.getText()) && u.getPassword().equals(AES.encrypt(passwordField.getText(), secretKey)) ){
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             FXMLLoader loader = new FXMLLoader();
@@ -50,6 +47,7 @@ public class LoginController {
                 fxmlLoader = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
             } else if(u.getId_role() == 2) {
                 fxmlLoader = FXMLLoader.load(getClass().getResource("doctor.fxml"));
+
             } else {
                 fxmlLoader = FXMLLoader.load(getClass().getResource("customer.fxml"));
             }
@@ -61,7 +59,10 @@ public class LoginController {
             stage.show();
         }
         else {
-            System.out.println("sai sai");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Lỗi đăng nhập");
+            alert.setHeaderText("Sai email hoặc mật khẩu");
+            alert.show();
         }
     }
 

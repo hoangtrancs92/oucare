@@ -30,6 +30,6 @@ public class department {
     }
     @Override
     public String toString() {
-        return "ID: "+ this.id + "\nPhòng ban: "  + this.name;
+        return "Phòng ban: "  + this.name;
     }
 }
