@@ -22,7 +22,18 @@ public class DoctorService {
         }
         return result;
     }
+    public List<user> getDoctor_create(Integer id) throws SQLException {
+        List<user> result = new ArrayList<>();
+        try(Connection conn = JdbcUtils.getCnn()){
 
+            PreparedStatement stm = conn.prepareStatement("SELECT * FROM  users WHERE id_department like concat('%','"+id+"','%')");
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()){
+                result.add(new user(rs.getInt(1), rs.getString(10)));
+            }
+        }
+        return result;
+    }
     public user getDoctor(int id) throws SQLException {
        user result =new user();
         try(Connection conn = JdbcUtils.getCnn()){

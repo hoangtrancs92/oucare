@@ -9,6 +9,7 @@ public class ticket {
     private int id_doctor;
     private String doctor_name;
     private String customer_name;
+    private String department_name;
     public ticket(int id, String date_start, String time_start, int id_customer, int id_doctor) {
         this.id = id;
         this.date_start = date_start;
@@ -16,21 +17,43 @@ public class ticket {
         this.id_customer = id_customer;
         this.id_doctor = id_doctor;
     }
-    public ticket(int id, String date_start, String time_start, String customer_name, String doctor_name) {
+
+
+    public ticket(String date_start, String time_start, int id_customer, int id_doctor) {
+        this.date_start = date_start;
+        this.time_start = time_start;
+        this.id_customer = id_customer;
+        this.id_doctor = id_doctor;
+    }
+    public ticket(int id, String date_start, String time_start, String doctor_name, String department_name, int so) {
+        this.id = id;
+        this.date_start = date_start;
+        this.time_start = time_start;
+        this.doctor_name = doctor_name;
+        this.department_name = department_name;
+
+    }
+    public ticket(int id, String date_start, String time_start, String customer_name, String doctor_name){
         this.id = id;
         this.date_start = date_start;
         this.time_start = time_start;
         this.customer_name = customer_name;
         this.doctor_name = doctor_name;
     }
-
     public ticket(int id, String date_start, String time_start, String name) {
         this.id = id;
         this.date_start = date_start;
         this.time_start = time_start;
         this.customer_name = name;
     }
-
+    public ticket(int id, String date_start, String time_start, String doctor_name, String department_name, String customer_name) {
+        this.id = id;
+        this.date_start = date_start;
+        this.time_start = time_start;
+        this.doctor_name = doctor_name;
+        this.department_name = department_name;
+        this.customer_name = customer_name;
+    }
     public int getId() {
         return id;
     }
@@ -85,4 +108,12 @@ public class ticket {
     public void setCustomer_name(String customer_name) {
         this.customer_name = customer_name;
     }
+    public String getDepartment_name() {
+        return department_name;
+    }
+
+    public void setDepartment_name(String department_name) {
+        this.department_name = department_name;
+    }
+
 }

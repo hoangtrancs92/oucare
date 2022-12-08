@@ -50,6 +50,18 @@ public class DepartmentService {
             return pstm.executeUpdate();
         }
     }
+    public List<department> getDepartment() throws SQLException {
+        List<department> result = new ArrayList<>();
+        try(Connection conn = JdbcUtils.getCnn()){
+            Statement stm = conn.createStatement();
+            ResultSet rs = stm.executeQuery("SELECT * FROM  departments");
+            while (rs.next()){
+                department info_department = new department(rs.getInt(1),rs.getString(2));
+                result.add(info_department);
+            }
+        }
+        return result;
+    }
 
     /**
      * update
@@ -67,5 +79,5 @@ public class DepartmentService {
             throw new RuntimeException(e);
         }
     }
-    
+
 }

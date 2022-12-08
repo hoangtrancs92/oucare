@@ -4,21 +4,28 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="342.0" prefWidth="521.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.oucare.LoginController">
+<AnchorPane prefHeight="335.0" prefWidth="521.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.oucare.LoginController">
    <children>
-      <TextField fx:id="txtUsername" layoutX="166.0" layoutY="109.0" prefHeight="26.0" prefWidth="227.0" />
-      <Button layoutX="217.0" layoutY="238.0" mnemonicParsing="false" onAction="#LoginButton" prefHeight="32.0" prefWidth="110.0" text="Đăng nhập" />
-      <Label layoutX="217.0" layoutY="43.0" prefHeight="46.0" prefWidth="110.0" text="OUcare">
+      <ImageView fitHeight="90.0" fitWidth="168.0" layoutX="20.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/logo.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="txtUsername" layoutX="166.0" layoutY="130.0" prefHeight="26.0" prefWidth="227.0" />
+      <Button layoutX="217.0" layoutY="259.0" mnemonicParsing="false" onAction="#LoginButton" prefHeight="32.0" prefWidth="110.0" text="Đăng nhập" />
+      <Label layoutX="217.0" layoutY="64.0" prefHeight="46.0" prefWidth="110.0" text="OUcare">
          <font>
             <Font name="System Bold" size="29.0" />
          </font>
       </Label>
-      <Label layoutX="72.0" layoutY="106.0" prefHeight="32.0" prefWidth="58.0" text="Email" />
-      <PasswordField fx:id="passwordField" layoutX="166.0" layoutY="171.0" prefHeight="26.0" prefWidth="227.0" />
-      <Label layoutX="72.0" layoutY="171.0" prefHeight="32.0" prefWidth="58.0" text="Mật khẩu" />
-      <Button layoutX="297.0" layoutY="210.0" mnemonicParsing="false" onAction="#switchToRegister" style="-fx-background-color: none; -fx-cursor: hand;" text="Đăng ký tại đây" textFill="#3971d3" />
+      <Label layoutX="72.0" layoutY="127.0" prefHeight="32.0" prefWidth="58.0" text="Email" />
+      <PasswordField fx:id="passwordField" layoutX="166.0" layoutY="192.0" prefHeight="26.0" prefWidth="227.0" />
+      <Label layoutX="72.0" layoutY="192.0" prefHeight="32.0" prefWidth="58.0" text="Mật khẩu" />
+      <Button layoutX="297.0" layoutY="231.0" mnemonicParsing="false" onAction="#switchToRegister" style="-fx-background-color: none; -fx-cursor: hand;" text="Đăng ký tại đây" textFill="#3971d3" />
    </children>
 </AnchorPane>

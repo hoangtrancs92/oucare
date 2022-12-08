@@ -30,10 +30,12 @@ public class department {
     }
     @Override
     public String toString() {
+
         return this.id + " - "  + this.name;
     }
 
-    public void setName(String name) {
+    public String setName(String name) {
         this.name = name;
+        return "Phòng ban: "  + this.name;
     }
 }

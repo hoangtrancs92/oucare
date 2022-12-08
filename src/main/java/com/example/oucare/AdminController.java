@@ -8,6 +8,8 @@ import com.example.oucare.services.TicketService;
 import com.example.oucare.services.UserService;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -19,7 +21,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 
 import javax.xml.transform.Result;
@@ -37,6 +41,7 @@ public class AdminController implements Initializable {
     @FXML private TableView<ticket> ticketTableView;
     @FXML private Button clear;
     @FXML private TabPane tb;
+    @FXML private Tab qlbacsiBtn;
     int user_id;
     int role_id;
     int check = 0;
@@ -54,7 +59,6 @@ public class AdminController implements Initializable {
         user.setPhone(u.getPhone());
         user.setId_role(u.getId_role());
         if(user.getId() != 0) {
-            System.out.println(user);
         }
         else
             System.out.println("dell");
@@ -90,8 +94,27 @@ public class AdminController implements Initializable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+
         this.clearValue(ts);
+        qlbacsiBtn.setOnSelectionChanged(new EventHandler<Event>() {
+            @Override
+            public void handle(Event t) {
+                if (qlbacsiBtn.isSelected()) {
+                    try {
+                        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("doctor.fxml"));
+                        Parent root1 = (Parent) fxmlLoader.load();
+                        Stage stage = new Stage();
+                        stage.setTitle("ABC");
+                        stage.setScene(new Scene(root1));
+                        stage.show();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
     }
+
     @FXML
     private void receiveData(MouseEvent event) {
         // Step 1
@@ -128,7 +151,6 @@ public class AdminController implements Initializable {
                 dp_id = this.departmentChoiceBox.getValue().getId();
             }
             department dp = new department(dp_id);
-            System.err.println(this.datePicker.getValue());
             try {
                 this.loadDataTable(this.datePicker, dp, this.name.getText(),ts);
             } catch (SQLException e) {

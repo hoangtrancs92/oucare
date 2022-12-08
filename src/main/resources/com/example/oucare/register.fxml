@@ -7,10 +7,12 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="495.0" prefWidth="480.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.oucare.RegisterController">
+<AnchorPane prefHeight="537.0" prefWidth="495.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.oucare.RegisterController">
    <children>
       <Label layoutX="197.0" layoutY="48.0" prefHeight="46.0" prefWidth="110.0" text="OUcare">
          <font>
@@ -38,5 +40,10 @@
       <Label layoutX="83.0" layoutY="383.0" prefHeight="32.0" prefWidth="79.0" text="Địa chỉ" />
       <TextField fx:id="addressField" layoutX="171.0" layoutY="386.0" prefHeight="26.0" prefWidth="227.0" />
       <Button layoutX="321.0" layoutY="415.0" mnemonicParsing="false" onAction="#switchToLogin" style="-fx-background-color: none; -fx-cursor: hand;" text="Đăng nhập ?" textFill="#3265c7" />
+      <ImageView fitHeight="141.0" fitWidth="178.0" layoutX="8.0" layoutY="-22.0">
+         <image>
+            <Image url="@../../../../../../../../LOGO-TRUONGV21-12-2018-02-300x300.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

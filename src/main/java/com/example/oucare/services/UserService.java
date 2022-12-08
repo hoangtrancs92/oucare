@@ -1,14 +1,17 @@
 package com.example.oucare.services;
 
+import java.security.PublicKey;
 import java.sql.*;
+import java.util.List;
 
+import com.example.oucare.model.ticket;
 import com.example.oucare.model.user;
 import com.example.oucare.config.JdbcUtils;
 
 public class UserService {
     final String secretKey = "12345678";
 
-    public  void addUsers(user u) throws SQLException {
+    public void addUsers(user u) throws SQLException {
         try {
             Connection cnn = JdbcUtils.getCnn();
             PreparedStatement stm1 = cnn.prepareStatement("INSERT INTO users(name,password,email,phone,address,birthday,sex,id_role) VALUES(?,?,?,?,?,?,?,'3')");
@@ -26,20 +29,22 @@ public class UserService {
             e.printStackTrace();
         }
     }
-    public user getUserByEmail(String email, String password) throws SQLException{
+
+    public user getUserByEmail(String email) throws SQLException {
         user u = new user();
-        try(Connection cnn = JdbcUtils.getCnn()){
+        try (Connection cnn = JdbcUtils.getCnn()) {
             PreparedStatement stm = cnn.prepareCall("SELECT users.id , users.email, users.password, users.id_role FROM  users WHERE email=?");
             stm.setString(1, email);
             ResultSet rs = stm.executeQuery();
-            while (rs.next()){
-                u = new user(rs.getInt("id"),rs.getString("email"), rs.getString("password"), rs.getInt("id_role"));
-
+            while (rs.next()) {
+                u = new user(rs.getInt("id"), rs.getString("email"), rs.getString("password"), rs.getInt("id_role"));
+                System.err.println(u);
             }
             stm.close();
         }
         return u;
     }
+
     public user getUserById(int id) throws SQLException {
         user u = new user();
         try (Connection cnn = JdbcUtils.getCnn()) {
@@ -55,4 +60,22 @@ public class UserService {
         }
         return u;
     }
+
+    public user getEmailUser(String email) {
+        user u = null;
+        try (Connection cnn = JdbcUtils.getCnn()) {
+            PreparedStatement stm = cnn.prepareCall("SELECT * FROM users where(email = ?)");
+            stm.setString(1, email);
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                u = new user(rs.getInt(1), rs.getString(4));
+                break;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        System.err.println(u);
+        return u;
+    }
+
 }
