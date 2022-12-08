@@ -26,17 +26,24 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class AdminController implements Initializable {
-    @FXML private ComboBox<department> departmentChoiceBox;
-    @FXML private DatePicker datePicker;
-    @FXML private TextField name;
-    @FXML private TableView<ticket> ticketTableView;
-    @FXML private Button clear;
-    @FXML private TabPane tb;
+    @FXML
+    private ComboBox<department> departmentChoiceBox;
+    @FXML
+    private DatePicker datePicker;
+    @FXML
+    private TextField name;
+    @FXML
+    private TableView<ticket> ticketTableView;
+    @FXML
+    private Button clear;
+    @FXML
+    private TabPane tb;
 
-    @FXML private Button btXoa;
+    @FXML
+    private Button btXoa;
 
-    @FXML private TableView<user> userTableView;
-
+    @FXML
+    private TableView<user> userTableView;
 
 
     int user_id;
@@ -55,12 +62,12 @@ public class AdminController implements Initializable {
         user.setBirthday((Date) u.getBirthday());
         user.setPhone(u.getPhone());
         user.setId_role(u.getId_role());
-        if(user.getId() != 0) {
-        }
-        else
+        if (user.getId() != 0) {
+        } else
             System.out.println("dell");
         return user;
     }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -104,14 +111,15 @@ public class AdminController implements Initializable {
         }
 
 
-
     }
+
     @FXML
     private void receiveData(MouseEvent event) {
         // Step 1
 
     }
-    public void loadTableView(){
+
+    public void loadTableView() {
 
         TableColumn column1 = new TableColumn("Mã vé");
         column1.setCellValueFactory(new PropertyValueFactory("id"));
@@ -133,43 +141,44 @@ public class AdminController implements Initializable {
         column5.setCellValueFactory(new PropertyValueFactory("customer_name"));
         column5.setPrefWidth(220);
         column5.setStyle("-fx-alignment: CENTER");
-        this.ticketTableView.getColumns().addAll(column1,column2,column3,column4,column5);
+        this.ticketTableView.getColumns().addAll(column1, column2, column3, column4, column5);
     }
+
     public void changeDataLoading(TicketService ts) throws SQLException {
         this.datePicker.valueProperty().addListener((evt) -> {
             int dp_id = 0;
-            if(this.departmentChoiceBox.getValue() != null){
+            if (this.departmentChoiceBox.getValue() != null) {
                 dp_id = this.departmentChoiceBox.getValue().getId();
             }
             department dp = new department(dp_id);
             try {
-                this.loadDataTable(this.datePicker, dp, this.name.getText(),ts);
+                this.loadDataTable(this.datePicker, dp, this.name.getText(), ts);
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
         });
-        this.departmentChoiceBox.valueProperty().addListener((evt)->{
+        this.departmentChoiceBox.valueProperty().addListener((evt) -> {
             int dp_id = 0;
-            if(this.departmentChoiceBox.getValue() != null){
+            if (this.departmentChoiceBox.getValue() != null) {
                 dp_id = this.departmentChoiceBox.getValue().getId();
             }
             department dp = new department(dp_id);
             System.err.println(dp.getId());
             System.err.println(this.datePicker.getValue());
             try {
-                this.loadDataTable(this.datePicker, dp, this.name.getText(),ts);
+                this.loadDataTable(this.datePicker, dp, this.name.getText(), ts);
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
         });
-        this.name.textProperty().addListener((evt)->{
+        this.name.textProperty().addListener((evt) -> {
             int dp_id = 0;
-            if(this.departmentChoiceBox.getValue() != null){
+            if (this.departmentChoiceBox.getValue() != null) {
                 dp_id = this.departmentChoiceBox.getValue().getId();
             }
             department dp = new department(dp_id);
             try {
-                this.loadDataTable(this.datePicker, dp, this.name.getText(),ts);
+                this.loadDataTable(this.datePicker, dp, this.name.getText(), ts);
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
@@ -182,9 +191,11 @@ public class AdminController implements Initializable {
 //            throw new RuntimeException(e);
 //        }
     }
+
     public void loadDataTable(DatePicker chooseDay, department category, String name, TicketService ts) throws SQLException {
         this.ticketTableView.setItems(FXCollections.observableList(ts.getTickets(chooseDay, category, name)));
     }
+
     public void clearValue(TicketService ts) {
         this.clear.setOnAction((evt) -> {
             this.datePicker.setValue(null);
@@ -200,11 +211,9 @@ public class AdminController implements Initializable {
     }
 
 
-
-
     /////////////// Phan cua Trien //////////////////////
 
-    public void loadTableUser(){
+    public void loadTableUser() {
         TableColumn col1 = new TableColumn("Mã KH");
         col1.setCellValueFactory(new PropertyValueFactory("id"));
         col1.setPrefWidth(100);
@@ -242,14 +251,9 @@ public class AdminController implements Initializable {
 //        }
         col7.setPrefWidth(80);
         col7.setStyle("-fx-alignment: CENTER");
-
-
-
-
-        this.userTableView.getColumns().addAll(col1,col2,col3,col4,col5,col6,col7);
-
-
+        this.userTableView.getColumns().addAll(col1, col2, col3, col4, col5, col6, col7);
     }
+
 
     public void loadTableDataUser(String kw) throws SQLException{
         UserService u = new UserService();

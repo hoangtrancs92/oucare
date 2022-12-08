@@ -2,6 +2,8 @@ package com.example.oucare.services;
 
 import java.security.PublicKey;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 import java.util.ArrayList;
 
@@ -15,9 +17,6 @@ import javafx.event.ActionEvent;
 public class UserService {
     final String secretKey = "12345678";
 
-
-    public static void add(user us) {
-    }
     public void addUsers(user u) throws SQLException {
         try {
             Connection cnn = JdbcUtils.getCnn();
@@ -36,8 +35,6 @@ public class UserService {
             e.printStackTrace();
         }
     }
-
-
 
     public user getUserByEmail(String email, String password) throws SQLException {
         user u = new user();
@@ -70,6 +67,7 @@ public class UserService {
         }
         return u;
     }
+
     public user getEmailUser(String email) {
         user u = null;
         try (Connection cnn = JdbcUtils.getCnn()) {

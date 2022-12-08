@@ -177,4 +177,13 @@ public class user {
     public void setId_department(int id_department){
         this.id_department = id_department;
     }
+    public String parseSex(int sex) {
+        if(sex == 0) {
+            return "nam";
+        }
+        else if (sex == 1)
+            return "nu";
+        else
+            return "khac";
+    }
 }
