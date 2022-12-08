@@ -3,17 +3,14 @@ package com.example.oucare;
 import com.example.oucare.model.department;
 import com.example.oucare.model.ticket;
 import com.example.oucare.model.user;
-import com.example.oucare.services.AES;
 import com.example.oucare.services.TicketService;
 import com.example.oucare.services.UserService;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 
 
 import javafx.scene.control.*;
@@ -22,12 +19,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 
-import javax.xml.transform.Result;
-import java.io.IOException;
-
 import java.net.URL;
 import java.sql.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class AdminController implements Initializable {
@@ -37,6 +32,13 @@ public class AdminController implements Initializable {
     @FXML private TableView<ticket> ticketTableView;
     @FXML private Button clear;
     @FXML private TabPane tb;
+
+    @FXML private Button btXoa;
+
+    @FXML private TableView<user> userTableView;
+
+
+
     int user_id;
     int role_id;
     int check = 0;
@@ -66,9 +68,9 @@ public class AdminController implements Initializable {
         this.loadTableView();
         try {
             this.departmentChoiceBox.setItems(FXCollections.observableList(ts.getDepartments()));
-            this.loadDataTable(null, new department(0,"null"), null,ts);
+            this.loadDataTable(null, new department(0, "null"), null, ts);
             this.tb.setOnMouseClicked((event) -> {
-                if(check == 0){
+                if (check == 0) {
                     Node node = (Node) event.getSource();
                     Stage stage = (Stage) node.getScene().getWindow();
                     // Step 2
@@ -90,6 +92,19 @@ public class AdminController implements Initializable {
             throw new RuntimeException(e);
         }
         this.clearValue(ts);
+
+
+        //trien
+        this.loadTableUser();
+        UserService us = new UserService();
+        try {
+            this.loadTableDataUser(null);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+
+
     }
     @FXML
     private void receiveData(MouseEvent event) {
@@ -170,16 +185,93 @@ public class AdminController implements Initializable {
     public void loadDataTable(DatePicker chooseDay, department category, String name, TicketService ts) throws SQLException {
         this.ticketTableView.setItems(FXCollections.observableList(ts.getTickets(chooseDay, category, name)));
     }
-    public void clearValue(TicketService ts){
+    public void clearValue(TicketService ts) {
         this.clear.setOnAction((evt) -> {
             this.datePicker.setValue(null);
             this.departmentChoiceBox.setItems(FXCollections.observableList(ts.getDepartments()));
             this.name.setText("");
             try {
-                this.loadDataTable(null, new department(0,"null"), null,ts);
+                this.loadDataTable(null, new department(0, "null"), null, ts);
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
         });
+
     }
+
+
+
+
+    /////////////// Phan cua Trien //////////////////////
+
+    public void loadTableUser(){
+        TableColumn col1 = new TableColumn("Mã KH");
+        col1.setCellValueFactory(new PropertyValueFactory("id"));
+        col1.setPrefWidth(100);
+        col1.setStyle("-fx-alignment: CENTER");
+
+        TableColumn col2 = new TableColumn("Tên Khách hàng");
+        col2.setCellValueFactory(new PropertyValueFactory("name"));
+        col2.setPrefWidth(100);
+        col2.setStyle("-fx-alignment: CENTER");
+
+        TableColumn col3 = new TableColumn("Email");
+        col3.setCellValueFactory(new PropertyValueFactory("email"));
+        col3.setPrefWidth(100);
+        col3.setStyle("-fx-alignment: CENTER");
+
+        TableColumn col4 = new TableColumn("Số điện thoại");
+        col4.setCellValueFactory(new PropertyValueFactory("phone"));
+        col4.setPrefWidth(100);
+        col4.setStyle("-fx-alignment: CENTER");
+
+        TableColumn col5 = new TableColumn("Địa chỉ");
+        col5.setCellValueFactory(new PropertyValueFactory("address"));
+        col5.setPrefWidth(110);
+        col5.setStyle("-fx-alignment: CENTER");
+
+        TableColumn col6 = new TableColumn("Năm sinh");
+        col6.setCellValueFactory(new PropertyValueFactory("birthday"));
+        col6.setPrefWidth(90);
+        col6.setStyle("-fx-alignment: CENTER");
+
+        TableColumn col7 = new TableColumn("Giới tính");
+        col7.setCellValueFactory(new PropertyValueFactory("sex"));
+//        if( Integer.parseInt(col7.getText()) == 0){
+//            col7.setText("Nam");
+//        }
+        col7.setPrefWidth(80);
+        col7.setStyle("-fx-alignment: CENTER");
+
+
+
+
+        this.userTableView.getColumns().addAll(col1,col2,col3,col4,col5,col6,col7);
+
+
+    }
+
+    public void loadTableDataUser(String kw) throws SQLException{
+        UserService u = new UserService();
+
+        this.userTableView.setItems(FXCollections.observableList(u.getUserByName(kw)));
+    }
+
+    /*public void add (ActionEvent event){
+        user u = new user(txtName.getText(),
+                txtEmail.getText());
+        ObservableList<user> users = userTableView.getItems();
+        users.add(u);
+        userTableView.setItems(users);
+
+    }*/
+
+    public void delete(ActionEvent event){
+    int selectedID = userTableView.getSelectionModel().getSelectedIndex();
+    userTableView.getItems().remove(selectedID);
+
+    }
+
+
+
 }

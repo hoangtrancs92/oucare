@@ -217,7 +217,7 @@ public class TicketService {
                     subRs_2.next();
                     doctor.setName_department(subRs_2.getString("name"));
                 }
-                ticket t = new ticket(rs.getInt("id"), rs.getString("date_start"), rs.getString("time_start") + ":00", doctor.getName(), doctor.getName_department());
+                ticket t = new ticket(rs.getInt("id"), rs.getString("date_start"), rs.getString("time_start") + ":00", doctor.getName(), doctor.getName_department(),1);
                 tickets.add(t);
             }
         }
@@ -242,7 +242,7 @@ public class TicketService {
             stm.setInt(2, id_department);
             ResultSet rs = stm.executeQuery();
             while (rs.next()){
-                ticket u = new ticket(rs.getInt(1),rs.getString(2),rs.getString(3), rs.getString(4), rs.getString(5));
+                ticket u = new ticket(rs.getInt(1),rs.getString(2),rs.getString(3), rs.getString(4), rs.getString(5),1);
                 result.add(u);
             }
         }

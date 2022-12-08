@@ -25,7 +25,7 @@ public class ticket {
         this.id_customer = id_customer;
         this.id_doctor = id_doctor;
     }
-    public ticket(int id, String date_start, String time_start, String doctor_name, String department_name) {
+    public ticket(int id, String date_start, String time_start, String doctor_name, String department_name,int So) {
         this.id = id;
         this.date_start = date_start;
         this.time_start = time_start;
@@ -33,7 +33,13 @@ public class ticket {
         this.department_name = department_name;
 
     }
-
+    public ticket(int id, String date_start, String time_start, String customer_name, String doctor_name){
+        this.id = id;
+        this.date_start = date_start;
+        this.time_start = time_start;
+        this.customer_name = customer_name;
+        this.doctor_name = doctor_name;
+    }
     public ticket(int id, String date_start, String time_start, String name) {
         this.id = id;
         this.date_start = date_start;

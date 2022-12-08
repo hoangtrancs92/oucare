@@ -32,7 +32,7 @@ public class LoginController {
 
         user u ;
         UserService USs = new UserService();
-         u = USs.getUserByEmail(txtUsername.getText());
+         u = USs.getUserByEmail(txtUsername.getText(),"");
         if(u.getEmail().equals(txtUsername.getText()) && u.getPassword().equals(AES.encrypt(passwordField.getText(), secretKey)) ){
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             FXMLLoader loader = new FXMLLoader();

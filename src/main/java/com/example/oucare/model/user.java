@@ -1,7 +1,6 @@
 package com.example.oucare.model;
 
 import java.util.Date;
-import java.util.List;
 
 public class user {
     private int id;
@@ -14,6 +13,9 @@ public class user {
     private int sex;
     private int id_role;
     private int id_department;
+    private String name_department;
+
+
 
     public String getName_department() {
         return name_department;
@@ -23,9 +25,11 @@ public class user {
         this.name_department = name_department;
     }
 
-    private String name_department;
 
-    public user(int id, String name, String email, String phone, String address, java.sql.Date birthday, int sex, int id_role, int id_department) {
+
+    public user(int id, String name, String email, String phone, String address, java.sql.Date birthday, int sex, int id_role, int id_department) {}
+
+    public user(int id, String name, String email, String phone, String address, java.sql.Date birthday, String string, int sex, int id_role, int id_department) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -50,7 +54,7 @@ public class user {
     public user(){
 
     }
-    public user(int id, String email, String password){
+    public user(int id, String email, String password, String phone, String address, java.sql.Date birthday, int sex, int id_role, int id_department, String string){
 
     }
 
