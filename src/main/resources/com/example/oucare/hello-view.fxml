@@ -13,6 +13,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="569.0" prefWidth="974.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.oucare.AdminController">
    <children>
@@ -38,25 +39,13 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView fx:id="ticketTableView1" layoutX="48.0" layoutY="119.0" prefHeight="422.0" prefWidth="920.0">
+                        <TableView fx:id="userTableView" layoutX="-22.0" layoutY="271.0" prefHeight="422.0" prefWidth="920.0">
                            <tooltip>
                               <Tooltip text="Empty Tooltip" />
                            </tooltip>
                         </TableView>
-                        <TextField fx:id="name1" layoutX="234.0" layoutY="62.0" prefHeight="26.0" prefWidth="268.0" promptText="Tìm chính xác bằng tên bác sĩ hoặc bệnh nhân ">
-                           <tooltip>
-                              <Tooltip text="Empty Tooltip" />
-                           </tooltip>
-                        </TextField>
-                        <Label layoutX="234.0" layoutY="62.0" text="Tên">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                           <tooltip>
-                              <Tooltip text="Empty Tooltip" />
-                           </tooltip>
-                        </Label>
-                        <Button fx:id="clear1" layoutX="58.0" layoutY="69.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="84.0" text="Xoá Tìm" />
+                        <Text layoutX="53.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                        <Button fx:id="btXoa" layoutX="404.0" layoutY="217.0" mnemonicParsing="false" onAction="#delete" text="Xóa" />
                      </children></AnchorPane>
                </content>
             </Tab>
