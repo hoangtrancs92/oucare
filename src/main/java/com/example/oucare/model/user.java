@@ -1,7 +1,6 @@
 package com.example.oucare.model;
 
 import java.util.Date;
-import java.util.List;
 
 public class user {
     private int id;
@@ -14,6 +13,21 @@ public class user {
     private int sex;
     private int id_role;
     private int id_department;
+
+
+    public user(int id, String email, String phone, String address, java.sql.Date birthday, int sex, int id_role, int id_department, String password, String name){
+        this.id=id;
+        this.email=email;
+        this.phone=phone;
+        this.address=address;
+        this.birthday=birthday;
+        this.sex=sex;
+        this.id_role=id_role;
+        this.id_department=id_department;
+        this.password=password;
+        this.name=name;
+
+    }
 
     public user(int id, String name, String email, String phone, String address, java.sql.Date birthday, int sex, int id_role, int id_department) {
         this.id = id;
@@ -91,7 +105,7 @@ public class user {
         this.name = name;
     }
     public String getEmail() {
-        return email;
+        return this.email;
     }
 
     public void setEmail(String email) {

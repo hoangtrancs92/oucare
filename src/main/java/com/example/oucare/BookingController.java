@@ -43,7 +43,7 @@ public class BookingController  implements Initializable {
         DepartmentService Dps = new DepartmentService();
         DoctorService Dc = new DoctorService();
         try {
-            this.departmentComboBox.setItems(FXCollections.observableList(Dps.getDepartment()));
+            this.departmentComboBox.setItems(FXCollections.observableList(Dps.getDepartments()));
             this.userComboBox.setItems(FXCollections.observableList(Dc.getDoctor(idphongban)));
         } catch (SQLException e) {
             e.printStackTrace();

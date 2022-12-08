@@ -7,14 +7,14 @@ public class department {
     public department(int id) {
         this.id = id;
     }
-    
+
     public department() {
         this.id = 0;
-        this.name = null;
+        this.setName(null);
     }
     public department(int id, String name) {
         this.id = id;
-        this.name = name;
+        this.setName(name);
     }
 
     public int getId() {
@@ -30,6 +30,10 @@ public class department {
     }
     @Override
     public String toString() {
-        return "ID: "+ this.id + "\nPhòng ban: "  + this.name;
+        return this.id + " - "  + this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
