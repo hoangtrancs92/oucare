@@ -88,9 +88,6 @@ public class DoctorController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
-//        loadComboboxSex(this.cbSex);
-
         initForm();
         try {
             loadTableView();
@@ -161,7 +158,7 @@ public class DoctorController implements Initializable {
 
     public void loadComboboxDepartment(ComboBox<department> comboBox) throws SQLException {
         DepartmentService departmentService = new DepartmentService();
-        List<department> departments = departmentService.getDepartments();
+        List<department> departments = departmentService.getDepartment();
         comboBox.setItems(FXCollections.observableList(departments));
     }
 

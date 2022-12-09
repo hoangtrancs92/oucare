@@ -60,7 +60,7 @@ public class DepartmentController implements Initializable {
     public void loadData() throws SQLException {
         colIdDep.setCellValueFactory(new PropertyValueFactory("id"));
         colNameDep.setCellValueFactory(new PropertyValueFactory("name"));
-        this.tbDep.setItems(FXCollections.observableList(departmentService.getDepartments()));
+        this.tbDep.setItems(FXCollections.observableList(departmentService.getDepartment()));
     }
 
     public void reset() {

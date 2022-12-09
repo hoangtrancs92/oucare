@@ -10,11 +10,11 @@ public class department {
 
     public department() {
         this.id = 0;
-        this.setName(null);
+        this.name = null;
     }
     public department(int id, String name) {
         this.id = id;
-        this.setName(name);
+        this.name = name;
     }
 
     public int getId() {
@@ -28,12 +28,13 @@ public class department {
     public String getName() {
         return name;
     }
-    @Override
-    public String toString() {
-        return this.id + " - "  + this.name;
-    }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Phòng ban: "  + this.name;
     }
 }

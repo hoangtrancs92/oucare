@@ -13,23 +13,23 @@ public class user {
     private int sex;
     private int id_role;
     private int id_department;
+    private String name_department;
 
 
-    public user(int id, String email, String phone, String address, java.sql.Date birthday, int sex, int id_role, int id_department, String password, String name){
-        this.id=id;
-        this.email=email;
-        this.phone=phone;
-        this.address=address;
-        this.birthday=birthday;
-        this.sex=sex;
-        this.id_role=id_role;
-        this.id_department=id_department;
-        this.password=password;
-        this.name=name;
 
+    public String getName_department() {
+        return name_department;
     }
 
-    public user(int id, String name, String email, String phone, String address, java.sql.Date birthday, int sex, int id_role, int id_department) {
+    public void setName_department(String name_department) {
+        this.name_department = name_department;
+    }
+
+
+
+    public user(int id, String name, String email, String phone, String address, java.sql.Date birthday, int sex, int id_role, int id_department) {}
+
+    public user(int id, String name, String email, String phone, java.sql.Date address, int birthday, int string, int sex, String id_role, String id_department) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -54,7 +54,7 @@ public class user {
     public user(){
 
     }
-    public user(int id, String email, String password){
+    public user(int id, String email, String password, String phone, String address, java.sql.Date birthday, String sex, int id_role, int id_department, int string){
 
     }
 
@@ -105,7 +105,7 @@ public class user {
         this.name = name;
     }
     public String getEmail() {
-        return this.email;
+        return email;
     }
 
     public void setEmail(String email) {
@@ -127,7 +127,7 @@ public class user {
         this.phone = phone;
     }
 
-//    @Override
+    //    @Override
 //    public String toString() {
 //        return "user{" +
 //                "id=" + id +

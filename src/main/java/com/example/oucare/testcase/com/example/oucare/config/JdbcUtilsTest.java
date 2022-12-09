@@ -36,7 +36,6 @@ class JdbcUtilsTest {
         while (rs.next()){
             String name = rs.getString("name");
             kq.add(name);
-            System.out.println(name);
         }
         Set<String> kq2 = new HashSet<>(kq);
         Assertions.assertEquals(kq.size(),kq2.size());
