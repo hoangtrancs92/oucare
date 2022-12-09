@@ -31,7 +31,7 @@ public class HelloController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         DepartmentService tm = new DepartmentService();
         try {
-            this.departmentComboBox.setItems(FXCollections.observableList(tm.getDepartments()));
+            this.departmentComboBox.setItems(FXCollections.observableList(tm.getDepartment()));
         } catch (SQLException e) {
             Logger.getLogger(DepartmentController.class.getName()).log(Level.SEVERE, (String) null);
         }

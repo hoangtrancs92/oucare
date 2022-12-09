@@ -16,7 +16,6 @@ public class user {
     private String name_department;
 
 
-
     public String getName_department() {
         return name_department;
     }
@@ -25,11 +24,21 @@ public class user {
         this.name_department = name_department;
     }
 
-
-
+    // Constructor nay dung cho doctor
+    public user(int id, String email, String phone, String address, java.sql.Date birthday, int sex, int id_role, int id_department, String password, String name) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+        this.address = address;
+        this.birthday = birthday;
+        this.sex = sex;
+        this.id_role = id_role;
+        this.id_department = id_department;
+    }
     public user(int id, String name, String email, String phone, String address, java.sql.Date birthday, int sex, int id_role, int id_department) {}
 
-    public user(int id, String name, String email, String phone, java.sql.Date address, int birthday, int string, int sex, String id_role, String id_department) {
+    public user(int id, String name, String email, String phone, String address, java.sql.Date birthday, String string, int sex, int id_role, int id_department) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -54,7 +63,7 @@ public class user {
     public user(){
 
     }
-    public user(int id, String email, String password, String phone, String address, java.sql.Date birthday, String sex, int id_role, int id_department, int string){
+    public user(int id, String email, String password, String phone, String address, java.sql.Date birthday, int sex, int id_role, int id_department, String string){
 
     }
 
