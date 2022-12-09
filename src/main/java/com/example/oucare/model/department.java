@@ -7,7 +7,7 @@ public class department {
     public department(int id) {
         this.id = id;
     }
-    
+
     public department() {
         this.id = 0;
         this.name = null;
@@ -28,6 +28,11 @@ public class department {
     public String getName() {
         return name;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     @Override
     public String toString() {
         return "Phòng ban: "  + this.name;

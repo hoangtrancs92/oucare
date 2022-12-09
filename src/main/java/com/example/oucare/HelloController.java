@@ -33,7 +33,7 @@ public class HelloController implements Initializable {
         try {
             this.departmentComboBox.setItems(FXCollections.observableList(tm.getDepartment()));
         } catch (SQLException e) {
-            Logger.getLogger(DepartmentController.class.getName()).log(Level.SEVERE, (String) null);
+            Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, (String) null);
         }
     }
 }
