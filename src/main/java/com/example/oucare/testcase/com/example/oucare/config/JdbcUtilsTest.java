@@ -1,5 +1,6 @@
-package com.example.oucare.config;
+package com.example.oucare.testcase.com.example.oucare.config;
 
+import com.example.oucare.config.JdbcUtils;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
@@ -36,7 +37,6 @@ class JdbcUtilsTest {
         while (rs.next()){
             String name = rs.getString("name");
             kq.add(name);
-            System.out.println(name);
         }
         Set<String> kq2 = new HashSet<>(kq);
         Assertions.assertEquals(kq.size(),kq2.size());
