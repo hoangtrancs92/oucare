@@ -156,7 +156,7 @@ public class DoctorService {
 
     public int updateDoctor(int id,user doctor){
         try(Connection conn = JdbcUtils.getCnn()){
-            String sql="update  Users set  email=?, phone=?, address=?, birthday=?, sex=?, id_role=?, id_department=?, password=?, name=?  where id=? ";
+            String sql="update  users set  email=?, phone=?, address=?, birthday=?, sex=?, id_role=?, id_department=?, password=?, name=?  where id=? ";
             PreparedStatement pstm= conn.prepareStatement(sql);
 
             pstm.setString(1, doctor.getEmail());
@@ -172,6 +172,20 @@ public class DoctorService {
             return pstm.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        }
+    }
+    public boolean isExits(int id) throws SQLException {
+        try (Connection conn = JdbcUtils.getCnn()) {
+            PreparedStatement prep = conn.prepareStatement("SELECT * FROM users WHERE id = ?");
+            prep.setInt(1, id);
+            ResultSet rs = prep.executeQuery();
+            if (rs.next()) {
+                return true;
+            }
+            return false;
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+            return false;
         }
     }
 

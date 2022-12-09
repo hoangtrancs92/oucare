@@ -1,13 +1,11 @@
 package com.example.oucare.services;
 
-import java.io.PrintStream;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.example.oucare.config.JdbcUtils;
 import com.example.oucare.model.department;
-import com.example.oucare.model.user;
 
 public class DepartmentService {
     public List<department> getDepartment() throws SQLException {
@@ -23,6 +21,19 @@ public class DepartmentService {
         return result;
     }
 
+    public List<department> getDepartment(String tenPB) throws SQLException {
+        List<department> result = new ArrayList<>();
+        try(Connection conn = JdbcUtils.getCnn()){
+            Statement stm = conn.createStatement();
+            ResultSet rs=stm.executeQuery("select * from departments where name like '%"+tenPB+"%'"  );
+
+            while (rs.next()){
+                department info_department = new department(rs.getInt(1),rs.getString(2));
+                result.add(info_department);
+            }
+        }
+        return result;
+    }
     public boolean isExits(int id) throws SQLException {
         try (Connection conn = JdbcUtils.getCnn()) {
             PreparedStatement prep = conn.prepareStatement("SELECT * FROM departments WHERE id = ?");

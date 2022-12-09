@@ -229,7 +229,22 @@ public class AdminController implements Initializable {
                 throw new RuntimeException(e);
             }
         });
-
+        this.txtSearchDep.textProperty().addListener((observableValue, s, t1) -> {
+            try {
+                searchDep(t1);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        });
+        this.tbDep.getSelectionModel().getSelectedItems().addListener((ListChangeListener<? super department>) change -> {
+            try {
+                int id = change.getList().get(0).getId();
+                System.out.println("id=" + id);
+                updateDoctor(id);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        });
         try {
             loadData();
         } catch (SQLException ex) {
@@ -407,6 +422,7 @@ public class AdminController implements Initializable {
      */
     //////////// QUAN LY PHONG BAN //////////////////////
     DepartmentService departmentService = new DepartmentService();
+    List<department> departments = new ArrayList<>();
 
     public void saveDepartment(ActionEvent event) throws SQLException {
         department dep = new department();
@@ -422,7 +438,11 @@ public class AdminController implements Initializable {
         }
         loadData();
     }
-
+    public void searchDep(String tenPB) throws SQLException {
+        this.departments = FXCollections.observableList(departmentService.getDepartment(tenPB));
+        this.tbDep.setItems((ObservableList<department>) this.departments);
+        System.out.println(tenPB);
+    }
     public void loadData() throws SQLException {
         colIdDep.setCellValueFactory(new PropertyValueFactory("id"));
         colNameDep.setCellValueFactory(new PropertyValueFactory("name"));
@@ -490,7 +510,7 @@ public class AdminController implements Initializable {
     public void saveDoctor(ActionEvent event) throws SQLException {
         DoctorService doctorService = new DoctorService();
         user doctor = new user();
-        String id;
+
         doctor.setName(txtName.getText());
         doctor.setAddress(txtAddress.getText());
         doctor.setEmail(txtEmail.getText());
@@ -509,7 +529,14 @@ public class AdminController implements Initializable {
         doctor.setId_department(cbDepartment.getSelectionModel().getSelectedItem().getId());
         doctor.setPassword(AES.encrypt("123456", "12345678"));
         doctor.setPhone(txtPhone.getText());
-        doctorService.saveDoctor(doctor);
+
+        if (doctorService.isExits(user_id + 1) == false){
+            doctorService.saveDoctor(doctor);
+        }
+        else {
+            doctorService.updateDoctor(user_id + 1, doctor);
+            System.err.print(user_id + 1);
+        }
         this.tbDoctor.setItems(FXCollections.observableList(doctorService.getDoctors()));
 
     }
