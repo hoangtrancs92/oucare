@@ -16,7 +16,6 @@ public class user {
     private String name_department;
 
 
-
     public String getName_department() {
         return name_department;
     }
@@ -25,8 +24,18 @@ public class user {
         this.name_department = name_department;
     }
 
-
-
+    // Constructor nay dung cho doctor
+    public user(int id, String email, String phone, String address, java.sql.Date birthday, int sex, int id_role, int id_department, String password, String name) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+        this.address = address;
+        this.birthday = birthday;
+        this.sex = sex;
+        this.id_role = id_role;
+        this.id_department = id_department;
+    }
     public user(int id, String name, String email, String phone, String address, java.sql.Date birthday, int sex, int id_role, int id_department) {}
 
     public user(int id, String name, String email, String phone, String address, java.sql.Date birthday, String string, int sex, int id_role, int id_department) {
@@ -127,7 +136,7 @@ public class user {
         this.phone = phone;
     }
 
-//    @Override
+    //    @Override
 //    public String toString() {
 //        return "user{" +
 //                "id=" + id +
