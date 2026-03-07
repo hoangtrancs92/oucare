@@ -45,29 +45,6 @@ OUcare is a desktop application that allows patients to book medical appointment
 
 ---
 
-## Project Structure
-
-```
-oucare/
-├── pom.xml                         # Maven build configuration
-└── src/main/
-    ├── java/com/example/oucare/
-    │   ├── HelloApplication.java   # Application entry point
-    │   ├── Controllers/            # JavaFX controllers (Login, Register, Admin, Booking)
-    │   ├── model/                  # Data models (user, ticket, department, time, roles)
-    │   ├── services/               # Business logic (UserService, DoctorService, TicketService, …)
-    │   └── config/
-    │       └── JdbcUtils.java      # Database connection configuration
-    └── resources/com/example/oucare/
-        ├── login.fxml              # Login screen
-        ├── register.fxml           # Registration screen
-        ├── hello-view.fxml         # Admin dashboard (5 tabs)
-        ├── doctor.fxml             # Doctor view
-        └── customer.fxml           # Patient booking view
-```
-
----
-
 ## Getting Started
 
 ### Prerequisites
